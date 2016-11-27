@@ -1,0 +1,54 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+<!DOCTYPE html>
+<html data-ng-app="AngularAuthApp">
+<head>
+    <title>Inf-Chat</title>
+    <meta charset="utf-8" />
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/loading-bar.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div style="float: left;" class="navbar-header">
+                <a style="cursor:pointer;" class="navbar-brand" href="/chat">Inf-Chat</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li data-ng-hide="!authentication.isAuth"><a style="cursor:default;">Welcome, {{authentication.userName}}</a></li>
+                <li data-ng-hide="!authentication.isAuth"><a style="cursor:pointer;" data-ng-click="logOut()">Logout</a></li>
+                <li data-ng-hide="authentication.isAuth"> <a style="cursor:pointer;" href="/login">Login</a></li>
+                <li data-ng-hide="authentication.isAuth"> <a style="cursor:pointer;" href="/signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container" style="min-width: 400px; margin-top: 50px;">
+        <div data-ng-view></div>
+    </div>
+    <div style="position:fixed; bottom: 0; width: 100%; height: 20px; padding: 0 5%; background-color: #008cba;" id="footer">
+        <div class="row">
+            <div>
+                <p style="float: right; color: white; font-size: 12px; font-weight:300" class="text-muted">Developed by: Vlad Statnyk</p>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="signalr/hubs"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/loading-bar.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+    <script src="Scripts/angular-local-storage.min.js"></script>
+    <script src="Scripts/Angular/app.js"></script>
+    <script src="Scripts/Angular/Services/authService.js"></script>
+    <script src="Scripts/Angular/Services/authInterceptorService.js"></script>
+    <script src="Scripts/Angular/Services/tokensManagerService.js"></script>
+    <script src="Scripts/Angular/Services/chatService.js"></script>
+    <script src="Scripts/Angular/Controllers/indexController.js"></script>
+    <script src="Scripts/Angular/Controllers/loginController.js"></script>
+    <script src="Scripts/Angular/Controllers/signupController.js"></script>
+    <script src="Scripts/Angular/Controllers/chatController.js"></script>
+</body>
+</html>

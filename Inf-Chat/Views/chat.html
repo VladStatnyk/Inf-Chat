@@ -1,0 +1,21 @@
+﻿<form class="form-horizontal" style="padding: 2%">
+    <div class="well" id="messages-container">
+        <ul style="list-style:none; padding: 0 10px;">
+            <li style="border-bottom: 1px solid #b0b0b0" ng-repeat="item in messages">
+                <div>
+                    <div class="comment-container">
+                        <b style="display:inline-block; font-weight:500" ng-style="{color: ((item.AuthorName==user.Name)&&'#008cba')}" class="h4" ng-bind="item.AuthorName"></b>
+                        <p style="float:right;" class="h6" ng-bind="item.Date"></p>
+                    </div>
+                    <div class="comment-container" style="margin-bottom: 10px;">
+                        <b class="h5" ng-init="ScrollToBottom($index)" ng-bind="item.Body"></b>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="well" align="right">
+        <textarea ng-model="user.Message" class="form-control" style="width: 100%; resize: vertical; margin-bottom: 1%" placeholder="Type your message here..."></textarea>
+        <button class="btn btn-info" ng-click="SendMessage();">Send Message</button>
+    </div>
+</form>
